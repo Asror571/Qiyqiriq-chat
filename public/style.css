@@ -1,0 +1,209 @@
+/* Umumiy sozlamalar */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #e5ddd5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 10px; /* kichik ekranlarda padding uchun */
+  box-sizing: border-box;
+}
+
+/* Chat konteyner */
+.chat-container {
+  width: 100%;
+  max-width: 500px;
+  height: 90vh;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Username so‘rash overlay */
+.username-overlay {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.username-overlay input {
+  padding: 12px;
+  font-size: 16px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 70%;
+  max-width: 300px;
+  box-sizing: border-box;
+}
+.chat-header {
+  background-color: #183847;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+  padding: 15px 20px;
+  border-bottom: 1px solid #bba800;
+  user-select: none;
+}
+
+
+.username-overlay button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  background-color: #0088cc;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.username-overlay button:hover {
+  background-color: #005f99;
+}
+
+/* Chat oynasi */
+.chat-box {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scroll-behavior: smooth;
+}
+
+/* Xabarlar */
+.msg, .own-msg, .info {
+  padding: 10px 14px;
+  border-radius: 20px;
+  max-width: 70%;
+  word-wrap: break-word;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.msg {
+  background-color: #dcf8c6;
+  align-self: flex-start;
+}
+
+.own-msg {
+  background-color: #aed2ff;
+  align-self: flex-end;
+}
+
+.info {
+  background-color: transparent;
+  color: gray;
+  font-size: 13px;
+  text-align: center;
+  max-width: 100%;
+}
+
+/* Xabar yuborish formasi */
+.message-form {
+  display: flex;
+  border-top: 1px solid #ccc;
+  padding: 10px;
+  background: #f0f0f0;
+  box-sizing: border-box;
+}
+
+.message-form input {
+  flex: 1;
+  padding: 12px 15px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.message-form input::placeholder {
+  color: #999;
+}
+
+.message-form button {
+  margin-left: 10px;
+  padding: 12px 25px;
+  background-color: #0088cc;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.message-form button:hover {
+  background-color: #005f99;
+}
+
+/* --- RESPONSIVE --- */
+
+/* Kichik ekranlar uchun (mobil) */
+@media (max-width: 480px) {
+  body {
+    height: 100%;
+    padding: 0;
+  }
+
+  .chat-container {
+    height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .username-overlay input {
+    width: 90%;
+  }
+
+  .message-form button {
+    padding: 12px 15px;
+    margin-left: 5px;
+  }
+
+  .msg, .own-msg {
+    max-width: 85%;
+    font-size: 14px;
+  }
+
+  .info {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+
+/* O‘rta ekranlar uchun (planshet) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .chat-container {
+    max-width: 400px;
+    height: 85vh;
+  }
+
+  .msg, .own-msg {
+    max-width: 75%;
+  }
+
+  .message-form button {
+    padding: 12px 20px;
+  }
+}

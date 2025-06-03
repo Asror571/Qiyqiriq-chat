@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Qiyqiriq-chat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="chat-container">
+    <!-- Username overlay -->
+    <div id="username-overlay" class="username-overlay">
+      <h1>Xush Kelibsiz</h1>
+      <h2>Ismingizni kiriting : </h2>
+      <input type="text" id="usernameInput" placeholder="Masalan: Asror" />
+      <button id="enterChat">Kirish</button>
+    </div>
+
+    <div class="chat-container">
+    <div class="chat-header">
+         Qiyqiriq - Chat
+    </div>
+
+    <!-- Chat box -->
+    <div id="chat-box" class="chat-box"></div>
+
+    <!-- Message input -->
+    <form id="message-form" class="message-form">
+      <input type="text" id="message-input" placeholder="Xabar yozing..." autocomplete="off" />
+      <button type="submit">Yuborish</button>
+    </form>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
