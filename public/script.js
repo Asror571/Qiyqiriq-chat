@@ -1,7 +1,7 @@
 const socket = io();
 let username = '';
 
-// Elementlar
+
 const usernameOverlay = document.getElementById('username-overlay');
 const usernameInput = document.getElementById('usernameInput');
 const enterChat = document.getElementById('enterChat');
@@ -9,7 +9,7 @@ const chatBox = document.getElementById('chat-box');
 const messageForm = document.getElementById('message-form');
 const messageInput = document.getElementById('message-input');
 
-// Username kiritish
+
 enterChat.addEventListener('click', () => {
   const name = usernameInput.value.trim();
   if (name) {
@@ -19,7 +19,7 @@ enterChat.addEventListener('click', () => {
   }
 });
 
-// Xabar yuborish
+
 messageForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const msg = messageInput.value.trim();
@@ -30,19 +30,17 @@ messageForm.addEventListener('submit', (e) => {
   }
 });
 
-// Foydalanuvchi qo‘shildi
+
 socket.on('user-joined', (name) => {
   appendInfo(`${name} chatga qo‘shildi`);
 });
 
-// Xabar olish
 socket.on('receive-message', (data) => {
   if (data.username !== username) {
     appendMessage(data.username, data.message);
   }
 });
 
-// Eski xabarlar (20 ta)
 socket.on('chat-history', (messages) => {
   messages.forEach((msg) => {
     if (msg.username === username) {
@@ -53,7 +51,6 @@ socket.on('chat-history', (messages) => {
   });
 });
 
-// Funksiya: oddiy xabar
 function appendMessage(name, msg) {
   const div = document.createElement('div');
   div.classList.add('msg');
@@ -62,7 +59,6 @@ function appendMessage(name, msg) {
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Funksiya: o‘zingiz yuborgan xabar
 function appendOwnMessage(msg) {
   const div = document.createElement('div');
   div.classList.add('own-msg');
@@ -71,7 +67,6 @@ function appendOwnMessage(msg) {
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Funksiya: info xabar (foydalanuvchi qo‘shildi)
 function appendInfo(msg) {
   const div = document.createElement('div');
   div.classList.add('info');
